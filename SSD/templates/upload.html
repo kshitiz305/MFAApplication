@@ -1,0 +1,16 @@
+<!-- templates/upload.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Upload</h1>
+    <div class="box">
+    <h1>File Upload</h1>
+      <form method="POST" action="" enctype="multipart/form-data">
+        <div class="field">
+          <p><input type="file" name="file"></p>
+          <p><input type="submit" value="Submit"></p>
+        </div>
+      </form>
+    </div>
+{% endblock %}

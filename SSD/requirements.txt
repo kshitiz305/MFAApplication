@@ -1,0 +1,12 @@
+# pip install -r requirements.txt
+
+# Webapp
+flask
+flask_sqlalchemy
+flask_login
+werkzeug
+
+# Testing
+flake8
+pylint
+pytest

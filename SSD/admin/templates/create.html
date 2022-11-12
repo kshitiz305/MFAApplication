@@ -1,0 +1,55 @@
+<!-- templates/create.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="column is-4 is-offset-4">
+    <h3 class="title">Create User</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}.
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form id="CreateForm" method="POST" action="/create">
+            <div class="field">
+                <div class="control">
+					<input class="input is-large" type="email" name="email" placeholder="Email" autofocus="" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+					title="Enter a valid email address">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="input is-large" type="text" name="name" placeholder="Name" required pattern="[a-zA-Z0-9_]{4,}"
+					title="The name can only consist of alphabetical, number and underscore, and at least 4 or more characters">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+					<input class="input is-large" type="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+					title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                </div>
+            </div>
+            <div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="text" name="role" list="11" placeholder="Role" required pattern="ISS|Ground Staff|Government|Admin"
+						title="Must contain an available role">
+						    <datalist id="11">
+								<option>ISS</option>
+								<option>Ground Staff</option>
+								<option>Government</option>
+								<option>Admin</option>
+							</datalist>
+                    </div>
+                </div>
+            </div>
+            <button class="button is-block is-info is-large is-fullwidth">Create</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
